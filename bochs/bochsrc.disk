@@ -1,0 +1,26 @@
+###############################################
+# Configuration file for Bochs
+###############################################
+megs: 32
+
+# 设置对应真实机器的 BIOS 和 VGA BIOS
+romimage: file=/OS-for-learning/bochs/share/bochs/BIOS-bochs-latest
+vgaromimage: file=/OS-for-learning/bochs/share/bochs/VGABIOS-lgpl-latest
+
+# 设置 Bochs 所使用的磁盘
+ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
+ata0-master: type=disk, path="hd60M.img", mode=flat, cylinders=121, heads=16, spt=63
+
+# 选择启动盘符
+boot: disk
+
+# 设置日志文件的输出
+log: bochs.out
+
+# 开启或关闭某些功能
+mouse: enabled=0
+keyboard_mapping: enabled=1, map=/OS-for-learning/bochs/share/bochs/keymaps/x11-pc-us.map
+
+# GDB 调试支持（如果不需要可以注释掉）
+#gdbstub: enabled=1, port=1234, text_base=0, data_base=0, bss_base=0
+###############################################
